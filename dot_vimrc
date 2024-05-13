@@ -1,0 +1,54 @@
+" coloration syntaxique
+syntax on
+colorscheme desert
+set background=dark
+set nocompatible
+
+" aides visuelles
+" set number
+set ruler
+set showcmd
+
+" recherche incrémentale
+set hlsearch
+set incsearch
+
+" auto-indentation à 2 espaces
+set autoindent
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+
+" compléter avec <Tab> en mode commande
+set wildmenu
+set wildmode=longest,full
+
+" options honteuses (pour les faibles)
+set clipboard=unnamedplus
+set mouse-=a
+
+" un peu de cohérence dans un monde de brutes
+nmap Y y$
+nmap U <C-r>
+
+" Highlight trailing spaces: http://vimbits.com/bits/478
+match Error /\s\+$/
+
+function! <SID>StripTrailingWhitespace()
+    " preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    %s///e
+    " clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+" Remove whitespace via F3
+noremap <silent> <F3> :call <SID>StripTrailingWhitespace()<CR>
+
+set listchars=tab:→\ ,nbsp:␣,trail:•,precedes:«,extends:»

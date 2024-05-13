@@ -1,0 +1,8 @@
+[user]
+  email = bastien.ceriani@gmail.com
+  name = Bastien CERIANI
+  signingkey = B3CA55AD2F6AB52B
+[gpg]
+  program = gpg
+[commit]
+  gpgsign = true

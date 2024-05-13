@@ -1,0 +1,48 @@
+[include]
+path = ~/.gitconfig-manomano
+[includeIf "gitdir:~/src/github.com/"]
+path = ~/.gitconfig-personal
+[core]
+  excludesfile = ~/.gitignore
+  editor = vim
+  filemode = false
+  pager = cat
+[push]
+  default = current
+[merge]
+  tool = vimdiff
+[grep]
+  line
+[alias]
+  br = branch
+  co = checkout
+  sh = show --color-words
+  st = status
+  di = diff
+  pom = push origin master
+  me = merge
+  menoff = merge --no-ff
+  merged = branch -r --merged origin/master
+  pruned = remote prune origin
+  last = cat-file commit HEAD
+  #stash
+  sta = stash
+  stalist = stash list
+  stast = stash list
+  stapp = stash pop
+  starm = stash drop
+  # log
+  graph = log --graph --decorate
+  graphs = log --graph --decorate --stat
+  tree = log --graph --format='%h %s %n %cd' --decorate --stat
+  logs = log --stat --decorate
+  # branch
+  brclean = "!git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d"
+  brlist = "!for branch in `git branch -r | grep -v \"HEAD\\|master\\|prod\\|stage\"`; do echo `git show --format=\"%ai\\t%ar\\tby %an\\t\" $branch | head -n 1` $branch; done | sort -r"
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	ui = true
