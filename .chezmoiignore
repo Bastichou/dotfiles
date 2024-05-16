@@ -1,1 +1,6 @@
 README.md
+
+# Ignore installation scripts
+run_once_before_init.sh
+run_once_after_brewInstall.sh
+run_onchange_after_setupMac.sh
