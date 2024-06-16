@@ -16,12 +16,10 @@ cask 'vlc'
 cask 'appcleaner'
 cask 'raycast'
 cask 'flux'
-cask 'kitty'
 cask 'iterm2'
 cask 'keepassxc'
 cask 'shadow'
 cask 'scroll-reverser'
-cask 'jabra-direct'
 
 brew 'asdf'
 brew 'tig'
@@ -35,6 +33,7 @@ brew 'docker-compose'
 brew 'docker-buildx'
 brew 'fzf'
 brew "git"
+brew "git-grab"
 brew "git-lfs"
 brew "zsh"
 brew "vim"
