@@ -18,6 +18,7 @@ cask 'raycast'
 cask 'flux'
 cask 'iterm2'
 cask 'keepassxc'
+cask 'slack'
 cask 'shadow'
 cask 'scroll-reverser'
 
