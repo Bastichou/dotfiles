@@ -109,7 +109,8 @@ alias tf='terraform'
 alias tg='terragrunt'
 alias kx='kubectx'
 alias ll='ls -lrta'
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+
+alias cc='chezmoi'
 
 # Created by `pipx` on 2024-01-15 14:01:11
 export PATH="$PATH:/Users/bastien/.local/bin"
