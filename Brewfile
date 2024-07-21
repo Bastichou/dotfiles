@@ -15,7 +15,6 @@ cask 'visual-studio-code'
 cask 'vlc'
 cask 'appcleaner'
 cask 'raycast'
-cask 'flux'
 cask 'iterm2'
 cask 'keepassxc'
 cask 'slack'
@@ -23,6 +22,7 @@ cask 'shadow'
 cask 'scroll-reverser'
 
 brew 'asdf'
+brew 'azure-cli'
 brew 'tig'
 brew 'pipx'
 brew 'awscli'
@@ -52,10 +52,7 @@ brew "krew"
 brew "kubectx"
 brew "helm"
 brew "k9s"
-brew "vault"
-brew "joemiller/taps/vault-token-helper"
 brew "vale"
-brew "kong/deck/deck"
 brew "cloudflared"
 brew "pnpm"
 brew "nvm"

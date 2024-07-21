@@ -1,5 +1,7 @@
 [include]
 path = ~/.gitconfig-personal
+[includeIf "gitdir:~/src/ssh.dev.azure.com"]
+path = ~/.gitconfig-helloasso
 [core]
   excludesfile = ~/.gitignore
   editor = vim
