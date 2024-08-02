@@ -5,6 +5,7 @@ tap "homebrew/services"
 tap "kong/deck"
 tap "hashicorp/tap"
 tap "joemiller/taps"
+tap "cloudflare/cloudflare"
 
 cask 'discord'
 cask 'dropbox'
@@ -26,6 +27,7 @@ brew 'azure-cli'
 brew 'tig'
 brew 'pipx'
 brew 'awscli'
+brew 'cloudflare/cloudflare/cf-terraforming'
 brew 'coreutils'
 brew 'colima'
 brew 'chezmoi'
