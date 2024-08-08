@@ -39,6 +39,7 @@ brew 'fzf'
 brew "git"
 brew "git-grab"
 brew "git-lfs"
+brew "gnu-sed"
 brew "istioctl"
 brew "zsh"
 brew "vim"
