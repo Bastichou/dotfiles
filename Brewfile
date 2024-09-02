@@ -21,6 +21,7 @@ cask 'keepassxc'
 cask 'slack'
 cask 'shadow'
 cask 'scroll-reverser'
+cask 'azuredatastudio'
 
 brew 'asdf'
 brew 'azure-cli'
