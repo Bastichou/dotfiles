@@ -24,6 +24,7 @@ cask 'scroll-reverser'
 
 brew 'asdf'
 brew 'azure-cli'
+brew 'azuredatastudio'
 brew 'tig'
 brew 'pipx'
 brew 'awscli'
