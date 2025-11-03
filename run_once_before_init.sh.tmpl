@@ -10,32 +10,27 @@ ARCH="{{ .chezmoi.arch }}"
 echo "[chezmoi] run_once_before_init.sh (${OS}/${ARCH})"
 
 if [[ "$OS" == "darwin" ]]; then
-
-  command -v brew >/dev/null 2>&1 || \
-    (echo '🍺  Installing Homebrew' && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)")
-
-  # Install Oh My Zsh
-  if [ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ]; then
-    (echo '💰  Installing oh-my-zsh' && yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)")
-  fi
-
+  echo "Mac related pre-requisites."
 else
+  echo "Linux related pre-requisites."
+
   # --- Ubuntu 22.04 prereqs ---
   if command -v apt >/dev/null 2>&1; then
     sudo apt-get update -y
     sudo apt-get install -y build-essential procps curl file git ca-certificates zsh
   fi
-
-  # --- Linuxbrew (si activé) ---
-  echo "🍺 Installing Homebrew (Linux)"
-
-  command -v brew >/dev/null 2>&1 || \
-  (echo '🍺  Installing Homebrew' && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)")
-
   # --- Zsh par défaut (Linux) ---
   if [[ "$SHELL" != "$(command -v zsh)" ]]; then
     chsh -s "$(command -v zsh)" || true
   fi
+fi
+
+command -v brew >/dev/null 2>&1 || \
+  (echo '🍺  Installing Homebrew' && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)")
+
+# Install Oh My Zsh
+if [ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ]; then
+  (echo '💰  Installing oh-my-zsh' && yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)")
 fi
 
 # Install chezmoi

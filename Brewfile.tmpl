@@ -1,12 +1,15 @@
+{{- if eq .chezmoi.os "darwin" -}}
+# macOS-specific cask install directory
 cask_args appdir: '/Applications'
+{{- end }}
 
-tap "homebrew/bundle"
-tap "homebrew/services"
-tap "kong/deck"
 tap "hashicorp/tap"
 tap "joemiller/taps"
 tap "cloudflare/cloudflare"
+tap "fluxcd/tap"
+tap 'azure/kubelogin'
 
+{{- if eq .chezmoi.os "darwin" }}
 cask 'discord'
 cask 'dropbox'
 cask 'spotify'
@@ -22,17 +25,16 @@ cask 'slack'
 cask 'shadow'
 cask 'scroll-reverser'
 cask 'azure-data-studio'
+{{- end }}
 
 brew 'asdf'
 brew 'azure-cli'
-brew 'azuredatastudio'
+brew 'Azure/kubelogin/kubelogin'
 brew 'tig'
 brew 'pipx'
 brew 'awscli'
 brew 'cdk8s'
-brew 'cloudflare/cloudflare/cf-terraforming'
 brew 'coreutils'
-brew 'colima'
 brew 'chezmoi'
 brew 'docker'
 brew 'docker-compose'
@@ -41,7 +43,6 @@ brew 'fzf'
 brew "git"
 brew "git-grab"
 brew "git-lfs"
-brew "gnu-sed"
 brew "istioctl"
 brew "zsh"
 brew "vim"
@@ -59,9 +60,14 @@ brew "krew"
 brew "kubectx"
 brew "helm"
 brew "k9s"
-brew "vale"
 brew "cloudflared"
 brew "pnpm"
 brew "nvm"
 brew "fluxcd/tap/flux"
 brew "postgresql"
+brew "uv"
+
+{{- if eq .chezmoi.os "darwin" }}
+brew 'colima'
+brew "gnu-sed"
+{{- end }}
