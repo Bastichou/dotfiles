@@ -112,5 +112,5 @@ alias ll='ls -lrta'
 
 alias cc='chezmoi'
 
-# Created by `pipx` on 2024-01-15 14:01:11
-export PATH="$PATH:/Users/bastien/.local/bin"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH"
+

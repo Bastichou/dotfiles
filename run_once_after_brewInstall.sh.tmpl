@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+echo "[chezmoi] run_once_after_brewInstall.sh"
+
+if command -v brew >/dev/null 2>&1; then
+  brew update
+  if [[ -f "{{ .chezmoi.sourceDir }}/Brewfile" ]]; then
+    brew bundle --file="{{ .chezmoi.sourceDir }}/Brewfile"
+  fi
+else
+  echo "ℹ️ brew non présent - skip."
+fi
