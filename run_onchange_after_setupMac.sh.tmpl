@@ -1,9 +1,9 @@
-#!/bin/bash
+{{ if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+set -euo pipefail
 
+echo "[chezmoi] run_onchange_after_setupMac.sh (macOS)"
 # https://macos-defaults.com/
-
-# Shortcuts
-##
 
 # Finder
 ## To show hidden files and folders
@@ -15,3 +15,4 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 # Dock
 ## Position the dock on the left side
 defaults write com.apple.dock orientation left
+{{ end -}}

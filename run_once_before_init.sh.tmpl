@@ -1,11 +1,30 @@
-#!/bin/bash
-
-set -eufo pipefail
+#!/usr/bin/env bash
+set -euo pipefail
 
 echo ""
 echo "🤚  This script will setup .dotfiles (chezmoi) for you."
 
-# Install Homebrew
+OS="{{ .chezmoi.os }}"
+ARCH="{{ .chezmoi.arch }}"
+
+echo "[chezmoi] run_once_before_init.sh (${OS}/${ARCH})"
+
+if [[ "$OS" == "darwin" ]]; then
+  echo "Mac related pre-requisites."
+else
+  echo "Linux related pre-requisites."
+
+  # --- Ubuntu 22.04 prereqs ---
+  if command -v apt >/dev/null 2>&1; then
+    sudo apt-get update -y
+    sudo apt-get install -y build-essential procps curl file git ca-certificates zsh
+  fi
+  # --- Zsh par défaut (Linux) ---
+  if [[ "$SHELL" != "$(command -v zsh)" ]]; then
+    chsh -s "$(command -v zsh)" || true
+  fi
+fi
+
 command -v brew >/dev/null 2>&1 || \
   (echo '🍺  Installing Homebrew' && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)")
 

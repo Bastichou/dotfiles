@@ -1,6 +1,6 @@
 [user]
   email = bastien.ce@helloasso.org
   name = Bastien CERIANI
-  signingkey = 478164826B668B7C
-[gpg]
-  program = gpg
+  signingkey = CD78C78434F97EEB
+[commit]
+  gpgsign = false
